@@ -1,0 +1,101 @@
+
+body {
+	color: #AEAEAE;
+	background-color: #111;
+}
+
+#app {
+	margin-top: 40px;
+}
+
+h1 {
+	color: #3387CC;
+	font-size: 22px;
+	line-height: 28px;
+}
+h2 {
+	color: #E28964;
+	font-size: 20px;
+	line-height: 24px;
+}
+h2 span {
+	font-size: 14px;
+	color: #888;
+}
+h3 {
+	color: #99CF50;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+p {
+	margin: 0;
+}
+p.condition {
+	font-weight: bold;
+}
+
+#search > input {
+	display: inline;
+	float: left;
+	margin-bottom: 0;
+}
+
+#search input.text {
+	margin: 3px 10px 0 0;
+}
+
+#weather, p {
+	-webkit-transition: all 400ms ease;
+}
+#weather.off, p.off {
+	opacity: 0;
+}
+#weather img {
+	background: white;
+	border-radius: 10px;
+	box-shadow: inset 0 1px 3px black;
+	float: left;
+	padding: 2px;
+	margin: 15px 10px 20px 0;
+}
+.day {
+	clear: both;
+	margin-bottom: 20px;
+}
+
+
+#loading {
+	position: relative;
+	-webkit-transition: all 1200ms ease 2000ms;
+	color: #65B042;
+	padding: 0 0 10px 0;
+	height: 20px;
+}
+#loading.off {
+	opacity : 0;
+}
+#loading p {
+	-webkit-transition: all 400ms ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#loading p.off {
+	opacity: 0;
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {}
