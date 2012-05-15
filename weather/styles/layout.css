@@ -1,4 +1,3 @@
-
 body {
 	color: #AEAEAE;
 	background-color: #111;
@@ -13,15 +12,18 @@ h1 {
 	font-size: 22px;
 	line-height: 28px;
 }
+
 h2 {
 	color: #E28964;
 	font-size: 20px;
 	line-height: 24px;
 }
+
 h2 span {
 	font-size: 14px;
 	color: #888;
 }
+
 h3 {
 	color: #99CF50;
 	font-size: 16px;
@@ -31,6 +33,7 @@ h3 {
 p {
 	margin: 0;
 }
+
 p.condition {
 	font-weight: bold;
 }
@@ -45,45 +48,70 @@ p.condition {
 	margin: 3px 10px 0 0;
 }
 
-#weather, p {
+#weather,p {
 	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	transition: all 400ms ease;
 }
-#weather.off, p.off {
+
+#weather.off,p.off {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	opacity: 0;
 }
+
 #weather img {
 	background: white;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
 	border-radius: 10px;
+
+	-webkit-box-shadow: inset 0 1px 3px black;
+	-moz-box-shadow: inset 0 1px 3px black;
 	box-shadow: inset 0 1px 3px black;
 	float: left;
 	padding: 2px;
 	margin: 15px 10px 20px 0;
 }
+
 .day {
 	clear: both;
 	margin-bottom: 20px;
 }
 
-
 #loading {
 	position: relative;
-	-webkit-transition: all 1200ms ease 2000ms;
 	color: #65B042;
 	padding: 0 0 10px 0;
-	height: 20px;
+	height: 40px;
 }
+
 #loading.off {
-	opacity : 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
 }
+
 #loading p {
 	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	transition: all 400ms ease;
 	position: absolute;
 	top: 0;
 	left: 0;
 }
+
 #loading p.off {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	opacity: 0;
 }
+
 
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 959px) {}

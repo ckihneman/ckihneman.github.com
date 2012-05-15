@@ -1,20 +1,21 @@
+// Chris Kihneman
 
 ( function( root, $ ) {
 	
-	var geolocator, fallback, mmDfr,
+	var ensureFallback, geolocator, fallback, mmDfr,
 		hasSupport = !!navigator.geolocation;
 
-	if ( !hasSupport ) {
-		mmDfr = $.Deferred();
-		$.getScript( 'http://j.maxmind.com/app/geoip.js', function() {
-			mmDfr.resolve();
-		});
-	}
+	ensureFallback = function() {
+		if ( !mmDfr ) {
+			mmDfr = $.getScript( 'http://j.maxmind.com/app/geoip.js' );
+		}
+		return mmDfr;
+	};
 
 	geolocator = function() {
 		var dfr = $.Deferred();
 
-		if ( hasSupport ) {
+		if ( hasSupport && !$.browser.msie ) {
 
 			navigator.geolocation.getCurrentPosition( function( pos ) {
 				dfr.resolve({
@@ -22,21 +23,20 @@
 					lon : pos.coords.longitude
 				});
 			}, function() {
-				dfr = fallback();
+				dfr = fallback(dfr);
 			});
 
 		} else {
-			dfr = fallback();
+			dfr = fallback(dfr);
 		}
 
 		return dfr.promise();
 	};
 
-	fallback = function() {
-		var dfr = $.Deferred();
+	fallback = function( dfr ) {
+		var scriptDfr = ensureFallback();
 
-		mmDfr.done( function() {
-
+		scriptDfr.done( function() {
 			if ( geoip_latitude && geoip_longitude ) {
 				dfr.resolve({
 					lat : geoip_latitude(),
@@ -45,12 +45,11 @@
 			} else {
 				dfr.reject();
 			}
-
 		}).fail( function() {
 			dfr.reject();
 		});
 
-		return dfr.promise();
+		return dfr;
 	};
 
 	root.GeoModel = Backbone.Model.extend({
@@ -60,7 +59,7 @@
 			var model = this;
 			return this.sync().done( function( pos ) {
 				model.set( pos );
-			}, function() {
+			}).fail( function() {
 				model.trigger( 'error', model, model.ERROR_MSG );
 			});
 		},
