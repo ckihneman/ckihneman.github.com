@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <title>Chris Kihneman - my new site on docpad</title>
+    <meta name="description" content="Frontend Thug">
+    <meta name="author" content="Chris Kihneman">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="/styles/style.css">
+
+     <!-- Favicons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+<!--     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"> -->
+    
+
+</head>
+<body>
+
+    <div class="container">
+    
+        <aside class="four columns offset-by-one">
+            <div class="content">
+                
+                <h1 id="logo"><a href="/">chris<br> <span>kihneman</span></a></h1>
+
+                <p>
+                    frontend thug,<br>
+                    hill mobber.
+                </p>
+
+                <p class="mobileHide">
+                    <em>passionate</em> about<br>
+                    html5, css3 &amp; <strong>javascript</strong>,<br>
+                    desktop &amp; mobile,<br>
+                    phonegap iOS &amp; android,<br>
+                    coffeescript &amp; stylus,<br>
+                    bass music,<br>
+                    lots of other stuff too -<br>
+                    i <em><strong>love</strong></em> what i do.
+                </p>
+
+                <h2>reach me on</h2>
+                <ul class="social">
+                    <li>
+                        <a class="lastfm" href="http://www.last.fm/user/ckihneman" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="soundcloud" href="http://soundcloud.com/sic1" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="github" href="https://github.com/ckihneman" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="linkedIn" href="http://www.linkedin.com/pub/chris-kihneman/13/740/1a0" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="google" href="https://plus.google.com/107511021670514138074/" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="email" href="mailto:ckihneman@gmail.com" target="_blank"></a>
+                    </li>
+                </ul>
+
+            </div>
+        </aside>
+        <section id="mainContent" class="ten columns">
+            
+
+<article>
+    <h2>my new site on docpad</h2>
+    <p class="date">1.15.12</p>
+    <p>I have been long overdue for building myself a new site. So when it came time to get it done, I set some requirements.</p>
+
+<ul>
+<li><p>Ability to write posts and pages in <a href="http://daringfireball.net/projects/markdown/syntax">markdown</a> format and the editor of my choice, <a href="http://www.sublimetext.com/2">Sublime Text 2</a>.</p></li>
+<li><p>Keep it <strong>simple</strong> - I need a system that can be expanded upon, but I'm tryin to do this in a weekend if possible.</p></li>
+<li><p><strong>Responsive</strong> - this site needs to work on mobile, tablet and desktop browsers.</p></li>
+<li><p>Not be wordpress or the like - they have there time and place, but not here and now.</p></li>
+</ul>
+
+<p>I came across <a href="https://github.com/bevry/docpad">DocPad</a> a little while back. Took a look at it again, and it still looks great. I'm not going to to far on why I chose DocPad, you have to look for yourself to see all of its amazingness. But all of the options for templating, a great file watch script that rebuilds the site on save.</p>
+
+<p>It is dependent on <a href="http://nodejs.org/#download">node.js</a> and the coffee-script module.</p>
+
+<pre><code>npm install -g coffee-script
+</code></pre>
+
+<p>Then install DocPad.</p>
+
+<pre><code>npm install -g docpad
+</code></pre>
+
+<p>Now we are ready to get at it. You can use <code>docpad run</code> to get a full running setup going - scaffolding files, server and all. Much more detailed information on <a href="https://github.com/bevry/docpad">DocPad's GitHub</a>.</p>
+
+<p>I found <code>docpad run</code> to be too much, and felt that ripping it apart would be too time consuming, and it would be best to just start a fresh file structure. I needed a nice base set of css, they use twitter bootstrap in the example - but it's just overkill for me.</p>
+
+<p>I'd usually default to <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> (H5BP) and <a href="http://960.gs/">960 grid system</a>, but DocPad recommended <a href="http://www.getskeleton.com/">Skeleton</a>. It has a <em>similar</em> setup as H5BP - but it also comes with its own grid system with built in break points via <code>@media</code> queries for a responsive design on desktop, tablet and mobile. So basically I'm sayin' it's awesome for mobile out of the box.</p>
+
+<p>Well, Skeleton is just a basic setup, it's not part of DocPad. So I ripped Skeleton apart and made a fresh file setup in the way of DocPad. Didn't take long at all and I had a pretty solid build rockin. Now I can do <code>docpad run</code> and it will not generate a scaffolding because it sees mine, but it will watch my files and rebuild the site on save of any file, and a server is running on <code>localhost:9778</code>.</p>
+
+<p>DocPad gives you lots of options for file parsing, I chose to go with <a href="https://github.com/sstephenson/eco">Eco</a> for the nested templating system. <a href="http://coffeescript.org/">CoffeeScript</a> was an easy decision for my JavaScript concerns. Then <a href="http://learnboost.github.com/stylus/">Stylus</a> is just awesome for CSS, and don't forget about <a href="https://github.com/visionmedia/nib">nib</a> waiting to go as well - just <code>@import 'nib'</code> on any stylus file you need it in.</p>
+
+<p>Here is <a href="https://github.com/ckihneman/DocPad-Skeleton">DocPad Skeleton</a> on my github - I made it as a base template to start this site with. It has a few posts in it to ensure things are working. I hope it helps someone out.</p>
+
+<p>I want to thank <a href="http://icondock.com/free/vector-social-media-icons">Icon Dock</a> for the awesome social media icons. They've got just about any network you can imagine being a part of - 16px, 24px, 32px in PNG format and a vector EPS file.</p>
+
+<p>I've also posted <a href="https://github.com/ckihneman/chriskihneman.com">my site on github</a> for anyone interested in seeing my implementation.</p>
+</article>
+
+<footer>
+    
+</footer>
+        </section>
+
+        <footer class="sixteen columns">
+            <p></p>
+        </footer>
+    </div><!-- container -->
+
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<!-- <script src="/vendor/prettify.js"></script> -->
+
+<!-- <script src="/scripts/script.js"></script> -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28313671-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

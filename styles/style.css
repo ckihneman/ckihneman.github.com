@@ -1,0 +1,46 @@
+@import '../styles/base.css';
+@import '../styles/skeleton.css';
+@import '../styles/prettify.css';
+body{color:#aeaeae;background-color:#111}
+h1,h2,h3{color:#99cf50;font-weight:bold;text-shadow:0 1px 1px #111;letter-spacing:-1px}
+a,a:visited{color:#89bdff;text-decoration:none}
+a:hover{color:#3387cc}
+p,strong{color:#aeaeae}
+aside{padding:60px 0 0;text-shadow:0 1px 1px #111;text-align:right;}
+aside .content{position:fixed;width:220px}
+aside h1{font-size:72px;letter-spacing:-3px;}
+aside h1 span{font-size:39px;position:relative;top:-14px;color:#65b042 !important}
+aside h1 a,aside h1 a:visited,aside h1 a:hover{color:#99cf50}
+aside h2{font-size:30px;color:#e28964}
+aside p,aside strong{color:#3387cc}
+#mainContent{position:relative}
+article{margin:60px 0 0;padding:0 20px;}
+article h2{color:#3387cc}
+article .date{color:#e28964}
+article li{margin:0 0 0 30px;list-style-type:circle}
+article pre{padding:15px 10px;margin:0 0 20px;background:#000;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
+article code{color:#65b042;font-family:'Liberation Mono','Consolas','Menlo','Monaco','Lucida Console','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New','monospace','serif';background:#000;padding:5px 10px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
+.social li{float:right;padding:0 0 0 10px;margin:0}
+.social a{display:block;width:24px;height:24px;background-repeat:no-repeat}
+.social .email{background-image:url("../images/email.png")}
+.social .google{background-image:url("../images/google-plus.png")}
+.social .linkedIn{background-image:url("../images/linkedin.png")}
+.social .github{background-image:url("../images/github.png")}
+.social .soundcloud{background-image:url("../images/soundcloud.png")}
+.social .lastfm{background-image:url("../images/lastfm.png")}
+.social .twitter{background-image:url("../images/twitter-2.png")}
+footer.sixteen{height:50px}
+@media only screen and (max-width: 959px){.container aside .content{width:172px}
+.social{position:relative;right:-10px;overflow:hidden;}
+.social li{padding:0}
+.social a{background-position:center;height:44px;width:44px}
+}@media only screen and (max-width: 767px){article{margin:40px 0 0}
+.container aside .content{width:100%;position:static;}
+.container aside .content .mobileHide{display:none}
+}@media only screen and (min-width: 480px) and (max-width: 767px){#logo{float:left;text-align:left}
+aside p{position:absolute;left:0;top:166px;text-align:left}
+.social{width:166px;float:right;margin:0}
+}@media only screen and (max-width: 479px){aside{text-align:center;}
+aside p br{display:none}
+.social{right:18px;margin:0}
+}
