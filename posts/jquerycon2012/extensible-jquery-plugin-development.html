@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Chris Kihneman - Pitfalls and Opportunities of Single Page Applications</title>
+    <title>Chris Kihneman - Extensible jQuery Plugin Development</title>
     <meta name="description" content="Frontend Thug">
     <meta name="author" content="Chris Kihneman">
     <!--[if lt IE 9]>
@@ -76,13 +76,25 @@
         </aside>
         <section id="mainContent" class="ten columns">
             <article>
-    <h2>Pitfalls and Opportunities of Single Page Applications</h2>
-    <p class="date">6.28.12</p>
-    <p>log your ajax and <code>window.onerror</code> errors via ajax hooks and log in GA or customly</p>
+    <h2>Extensible jQuery Plugin Development</h2>
+    <p class="date">6.29.12</p>
+    <h3>new development pattern</h3>
 
-<p><code>pustState</code> for url handing, fallback to hash</p>
+<ul>
+<li><p>internal plugin obj to conatin defaults</p></li>
+<li><p>ability to call methods directly</p></li>
+<li><p>create and store standalone plugin instances</p></li>
+<li><p>tear down method (<code>.destroy()</code>)</p></li>
+</ul>
 
-<p><a href="https://github.com/jzaefferer/pitfalls-examples">pitfalls-examples</a></p>
+<h4>some links</h4>
+
+<ul>
+<li><p><a href="http://vurl.me/TPUT">jquery plugins are broken</a></p></li>
+<li><p><a href="http://vurl.me/TPUU">buding stateful plugins</a></p></li>
+<li><p><a href="http://vurl.me/TPUY">plugin patterns</a></p></li>
+<li><p><a href="http://ajpiano.com/widgetfactory/#slide1">widget factory</a></p></li>
+</ul>
 </article>
 
 <footer>
@@ -111,10 +123,6 @@
                 &raquo;
                 <a href="/posts/jquerycon2012/creating-a-dynamic-mobile-application-using-jquery-mobile.html">Creating a Dynamic Mobile Application using jQuery Mobile</a></li>
             
-                <li><span>Jun 29 2012</span>
-                &raquo;
-                <a href="/posts/jquerycon2012/extensible-jquery-plugin-development.html">Extensible jQuery Plugin Development</a></li>
-            
                 <li><span>Jun 28 2012</span>
                 &raquo;
                 <a href="/posts/jquerycon2012/exterminating-common-jquery-bugs.html">Exterminating Common jQuery Bugs</a></li>
@@ -138,6 +146,10 @@
                 <li><span>Jun 28 2012</span>
                 &raquo;
                 <a href="/posts/jquerycon2012/new-perspectives-on-performance.html">New Perspectives on Performance</a></li>
+            
+                <li><span>Jun 29 2012</span>
+                &raquo;
+                <a href="/posts/jquerycon2012/pitfalls-and-opportunities-of-single-page-applications.html">Pitfalls and Opportunities of Single Page Applications</a></li>
             
                 <li><span>Jun 29 2012</span>
                 &raquo;
