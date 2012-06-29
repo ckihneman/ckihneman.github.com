@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Chris Kihneman - Beyond the DOM: Sane Structure for JS Apps</title>
+    <title>Chris Kihneman - HTML5 Game Dev on the iPad</title>
     <meta name="description" content="Frontend Thug">
     <meta name="author" content="Chris Kihneman">
     <!--[if lt IE 9]>
@@ -76,12 +76,57 @@
         </aside>
         <section id="mainContent" class="ten columns">
             <article>
-    <h2>Beyond the DOM: Sane Structure for JS Apps</h2>
+    <h2>HTML5 Game Dev on the iPad</h2>
     <p class="date">6.28.12</p>
-    <ul>
-<li><p>user interface</p></li>
-<li><p>managing state</p></li>
-<li><p>brokering communcation</p></li>
+    <p>Useage of iframes to create and destroy views to regain memory via garbage collection.</p>
+
+<ul>
+<li><p>iframes for views</p></li>
+<li><p>minimal html skeleton</p></li>
+<li><p>ajax calls for gamestate, messaging feeds, and purchasing options</p></li>
+<li><p>in house wrapper (like phonegap)</p></li>
+</ul>
+
+<p>Dom elms vs Canvas</p>
+
+<ul>
+<li><p>ipad dev = one css prefix</p></li>
+<li><p>dom elements > canvas draws</p></li>
+<li><p>repeated calls are super fast</p></li>
+<li><p>css re-sizes to every resolution</p></li>
+</ul>
+
+<p>The CSS</p>
+
+<ul>
+<li><p>cure paths using 2 elms</p></li>
+<li><p>avoid poacity and box shadow</p></li>
+<li><p>use transforms first</p></li>
+<li><p>pseudo elements dont add leaves</p></li>
+</ul>
+
+<p>The Events</p>
+
+<ul>
+<li><p>animationEnd and transitionEnd</p></li>
+<li><p>click vs touchStart (for a game, you need to trigger on touchStart)</p></li>
+</ul>
+
+<p>Summary</p>
+
+<ul>
+<li><p>iframes</p></li>
+<li><p>draw with dom</p></li>
+<li><p>use keyframes</p></li>
+<li><p>save data in .data</p></li>
+</ul>
+
+<p>Questions</p>
+
+<ul>
+<li><p>If you need to use shadows or opacity - just use a png?</p></li>
+<li><p>Performance hits on the iphone?</p></li>
+<li><p>iPad 3 upgrade for graphics?</p></li>
 </ul>
 </article>
 
@@ -97,6 +142,10 @@
             
                 <li><span>Jun 28 2012</span>
                 &raquo;
+                <a href="/posts/jquerycon2012/beyond-the-dom-sane-structure-for-js-apps.html">Beyond the DOM: Sane Structure for JS Apps</a></li>
+            
+                <li><span>Jun 28 2012</span>
+                &raquo;
                 <a href="/posts/jquerycon2012/creating-a-dynamic-mobile-application-using-jquery-mobile.html">Creating a Dynamic Mobile Application using jQuery Mobile</a></li>
             
                 <li><span>Jun 28 2012</span>
@@ -106,10 +155,6 @@
                 <li><span>Jun 28 2012</span>
                 &raquo;
                 <a href="/posts/jquerycon2012/going-deeper-with-jquery-mobile.html">Going Deeper with jQuery Mobile</a></li>
-            
-                <li><span>Jun 28 2012</span>
-                &raquo;
-                <a href="/posts/jquerycon2012/html5-game-dev-on-the-ipad.html">HTML5 Game Dev on the iPad</a></li>
             
                 <li><span>Jun 28 2012</span>
                 &raquo;
