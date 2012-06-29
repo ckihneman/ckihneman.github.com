@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Chris Kihneman - Exterminating Common jQuery Bugs</title>
+    <title>Chris Kihneman - Contextual jQuery 3: Just In Time &amp; User Actions</title>
     <meta name="description" content="Frontend Thug">
     <meta name="author" content="Chris Kihneman">
     <!--[if lt IE 9]>
@@ -76,21 +76,109 @@
         </aside>
         <section id="mainContent" class="ten columns">
             <article>
-    <h2>Exterminating Common jQuery Bugs</h2>
+    <h2>Contextual jQuery 3: Just In Time &amp; User Actions</h2>
     <p class="date">6.28.12</p>
-    <p>Sync vs Async</p>
+    <h3>Issue</h3>
 
-<h3>Animations</h3>
+<p>sacarifice load time, waste memory and sometimes bandwidth</p>
+
+<blockquote>
+  <p>Write code like you spend money</p>
+</blockquote>
+
+<h3>Solutions</h3>
+
+<p>handle init state with css</p>
+
+<p>streamline dom ready, fewer selectors, less init</p>
+
+<p>leverage delegated events</p>
+
+<p>use personalized html conventions to make code as reusbale as possible</p>
+
+<p>init components just in time</p>
+
+<h3>new problems</h3>
+
+<p>user could try to interact with component that isnt init</p>
+
+<p>forced to wait to create</p>
+
+<h3>feedback loops</h3>
+
+<p>events firing as user interacts</p>
+
+<p>pagees user visits my indicate whats needed</p>
+
+<h4>events</h4>
+
+<p>click/tap</p>
 
 <ul>
-<li><p>Stack on eachtoher, clear queue with <code>.stop( true, true )</code></p>
-
-<p>Last true runs last animation</p></li>
+<li><p>delegate it</p></li>
+<li><p>load on demand with some feedback right away</p></li>
 </ul>
 
-<p>Data attrs will convert to array, string, object, boolean when selected via <code>.data()</code>, use <code>.attr()</code> for string only version.</p>
+<p>mouseenter/leave</p>
 
-<p>Use return <code>false</code> from jquery handlers to <code>e.preventDefault()</code> and <code>e.stopPropagation()</code></p>
+<ul>
+<li>last resort</li>
+</ul>
+
+<p>mouseenter/leave on delay</p>
+
+<ul>
+<li><p>wait before init</p></li>
+<li><p>action has high probibility of being needed after delay</p></li>
+<li><p><code>.doTimeout</code> by ben almen</p></li>
+</ul>
+
+<h3>scrolling</h3>
+
+<ul>
+<li><p>defines what they cant interact with</p></li>
+<li><p>could be expensive</p></li>
+<li><p><a href="http://bit.ly/jquerywaypoints">jquery waypoints</a></p></li>
+<li><p><a href="">jquery sonar</a></p></li>
+<li><p>throttle or debounce on intensive operations</p></li>
+</ul>
+
+<h3>focus</h3>
+
+<ul>
+<li><p>high probibilty</p></li>
+<li><p>great time to init autocomplete, date picker, or validation on form</p></li>
+<li><p>reminder: <code>focusin</code> and <code>focusout</code></p></li>
+</ul>
+
+<h3>typing</h3>
+
+<ul>
+<li><p>high probibility</p></li>
+<li><p>great time to start loading next pages of multi-step wizard</p></li>
+</ul>
+
+<h3>resize</h3>
+
+<ul>
+<li><p>needed for responsive desigsn where funtionalty depends on screen area</p></li>
+<li><p>throttle or debounce to cut down on performance issues on resize</p></li>
+</ul>
+
+<h3>beacon interactions</h3>
+
+<ul>
+<li><p>next button on slideshow</p></li>
+<li><p>mouse down (touch start) on draggable</p></li>
+<li><p>on click to launch dialog init and launch it, or just open if its init</p></li>
+</ul>
+
+<h3>example</h3>
+
+<pre><code>$doc.on 'click', '.slidedhow:not(.is-ready)', -&gt;
+    // code
+    $(this).addClass 'is-ready'
+</code></pre>
 </article>
 
 <footer>
@@ -111,13 +199,13 @@
                 &raquo;
                 <a href="/posts/jquerycon2012/confessions-of-a-jquery-committer.html">Confessions of a jQuery Committer</a></li>
             
-                <li><span>Jun 29 2012</span>
-                &raquo;
-                <a href="/posts/jquerycon2012/contextual-jquery-3-just-in-time-and-user-actions.html">Contextual jQuery 3: Just In Time &amp; User Actions</a></li>
-            
                 <li><span>Jun 28 2012</span>
                 &raquo;
                 <a href="/posts/jquerycon2012/creating-a-dynamic-mobile-application-using-jquery-mobile.html">Creating a Dynamic Mobile Application using jQuery Mobile</a></li>
+            
+                <li><span>Jun 28 2012</span>
+                &raquo;
+                <a href="/posts/jquerycon2012/exterminating-common-jquery-bugs.html">Exterminating Common jQuery Bugs</a></li>
             
                 <li><span>Jun 28 2012</span>
                 &raquo;

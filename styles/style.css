@@ -2,7 +2,7 @@
 @import '../styles/skeleton.css';
 @import '../styles/prettify.css';
 body{color:#aeaeae;background-color:#111}
-h1,h2,h3{color:#99cf50;font-weight:bold;text-shadow:0 1px 1px #111;letter-spacing:-1px}
+h1,h2,h3,h4,h5,h6{color:#99cf50;font-weight:bold;text-shadow:0 1px 1px #111;letter-spacing:-1px}
 a,a:visited{color:#89bdff;text-decoration:none}
 a:hover{color:#3387cc}
 p,strong{color:#aeaeae}
