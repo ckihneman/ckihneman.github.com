@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Chris Kihneman - New Perspectives on Performance</title>
+    <title>Chris Kihneman - Faster jQuery With Category Theory</title>
     <meta name="description" content="Frontend Thug">
     <meta name="author" content="Chris Kihneman">
     <!--[if lt IE 9]>
@@ -76,34 +76,32 @@
         </aside>
         <section id="mainContent" class="ten columns">
             <article>
-    <h2>New Perspectives on Performance</h2>
-    <p class="date">6.28.12</p>
-    <ul>
-<li><p>visibility</p>
-
-<ul><li><p>read "high performance websites" by steve soulders</p></li>
-<li><p>YSlow/Dev tools</p></li>
-<li><p>track time to <code>$.ready</code> in GA</p></li>
-<li><p><a href="http://www.8bitalpha.com/">8bitalpha</a></p></li></ul></li>
-<li><p>interactivity</p>
-
-<ul><li><p>"even faster web sites" by steve soulders</p></li>
-<li><p><code>console.profile</code> your doc ready guts</p></li>
-<li><p>delay init on pieces not needed</p></li></ul></li>
-<li><p>responsivness</p>
-
-<ul><li><p>"high performance javascript" by nicholas zakas</p></li>
-<li><p>throttle/debouce events when needed</p></li>
-<li><p>fake it, give feedback right away</p></li></ul></li>
-</ul>
-
-<h3>Establish a Baseline</h3>
+    <h2>Faster jQuery With Category Theory</h2>
+    <p class="date">6.29.12</p>
+    <p><code>ob(C)</code> is a set of objects</p>
 
 <ul>
-<li><p>measurable</p></li>
-<li><p>repeatable</p></li>
-<li><p>stable</p></li>
+<li>jquery returns <code>{jquery}</code></li>
 </ul>
+
+<p><code>hom(C)</code> morphims</p>
+
+<ul>
+<li>jqeury has methods <code>$el.hide()</code></li>
+</ul>
+
+<p>Functor - mapper between categories</p>
+
+<pre><code>Html -&gt; jq
+</code></pre>
+
+<p>Then compose</p>
+
+<p>running jquery functions on chains runs a loop on each method. If we could get access to just the functor on a single element, we can compose functions to run on a single element inside of a single loop.</p>
+
+<p><a href="https://github.com/johnbender/jquery-lazy-proxy">jquery lazy proxy</a></p>
+
+<p><a href="http://johnbender.us/?p=1682">his site</a></p>
 </article>
 
 <footer>
@@ -142,10 +140,6 @@
             
                 <li><span>Jun 29 2012</span>
                 &raquo;
-                <a href="/posts/jquerycon2012/faster-jquery-with-category-theory.html">Faster jQuery With Category Theory</a></li>
-            
-                <li><span>Jun 29 2012</span>
-                &raquo;
                 <a href="/posts/jquerycon2012/flying-satellites-from-a-browser.html">Flying Satellites from a Browser</a></li>
             
                 <li><span>Jun 28 2012</span>
@@ -167,6 +161,10 @@
                 <li><span>Jun 28 2012</span>
                 &raquo;
                 <a href="/posts/jquerycon2012/i-promise-to-show-you-when-to-use-deferreds.html">I .promise() to show you .when() to use Deferreds</a></li>
+            
+                <li><span>Jun 28 2012</span>
+                &raquo;
+                <a href="/posts/jquerycon2012/new-perspectives-on-performance.html">New Perspectives on Performance</a></li>
             
                 <li><span>Jun 29 2012</span>
                 &raquo;

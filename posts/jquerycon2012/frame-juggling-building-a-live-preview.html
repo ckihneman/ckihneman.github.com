@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Chris Kihneman - New Perspectives on Performance</title>
+    <title>Chris Kihneman - Frame Juggling: Building a Live Preview</title>
     <meta name="description" content="Frontend Thug">
     <meta name="author" content="Chris Kihneman">
     <!--[if lt IE 9]>
@@ -76,34 +76,49 @@
         </aside>
         <section id="mainContent" class="ten columns">
             <article>
-    <h2>New Perspectives on Performance</h2>
-    <p class="date">6.28.12</p>
-    <ul>
-<li><p>visibility</p>
+    <h2>Frame Juggling: Building a Live Preview</h2>
+    <p class="date">6.29.12</p>
+    <p>Wordpress has a live preview - awesome.</p>
 
-<ul><li><p>read "high performance websites" by steve soulders</p></li>
-<li><p>YSlow/Dev tools</p></li>
-<li><p>track time to <code>$.ready</code> in GA</p></li>
-<li><p><a href="http://www.8bitalpha.com/">8bitalpha</a></p></li></ul></li>
-<li><p>interactivity</p>
+<h3>cross domain communication</h3>
 
-<ul><li><p>"even faster web sites" by steve soulders</p></li>
-<li><p><code>console.profile</code> your doc ready guts</p></li>
-<li><p>delay init on pieces not needed</p></li></ul></li>
-<li><p>responsivness</p>
+<p><code>postmessage</code> communication between iframes</p>
 
-<ul><li><p>"high performance javascript" by nicholas zakas</p></li>
-<li><p>throttle/debouce events when needed</p></li>
-<li><p>fake it, give feedback right away</p></li></ul></li>
-</ul>
+<p>CORS - cross origin scripts and ajax</p>
 
-<h3>Establish a Baseline</h3>
+<h3>post, ajax and stuffing</h3>
+
+<p>pro - unlimted request size, responses can be inspected</p>
+
+<p>con - have to work around CORS</p>
+
+<p>throttle - dont kill the server</p>
+
+<p>seamless - iframe queue, build an iframe on the side and replace with anther updated one</p>
+
+<p>use postMessage for progressinve enhancements</p>
+
+<h4>keep it clean</h4>
 
 <ul>
-<li><p>measurable</p></li>
-<li><p>repeatable</p></li>
-<li><p>stable</p></li>
+<li><p>scan content for errors</p></li>
+<li><p>watch for expired cookies</p></li>
+<li><p>handle redirects</p></li>
+<li><p>catch malicious requests</p></li>
 </ul>
+
+<h4>backwards compatibility</h4>
+
+<p>gotta keep it, cant break the web</p>
+
+<pre><code>con = =&gt;
+
+$.extend Con::, Mixin
+
+instance = new Con
+</code></pre>
+
+<p>use jquery to create an observable pattern</p>
 </article>
 
 <footer>
@@ -111,10 +126,6 @@
     <section id="related">
         <h3>Related Posts</h3>
         <nav class="linklist">
-            
-                <li><span>Jun 29 2012</span>
-                &raquo;
-                <a href="/posts/jquerycon2012/frame-juggling-building-a-live-preview.html">Frame Juggling: Building a Live Preview</a></li>
             
                 <li><span>Jun 28 2012</span>
                 &raquo;
@@ -167,6 +178,10 @@
                 <li><span>Jun 28 2012</span>
                 &raquo;
                 <a href="/posts/jquerycon2012/i-promise-to-show-you-when-to-use-deferreds.html">I .promise() to show you .when() to use Deferreds</a></li>
+            
+                <li><span>Jun 28 2012</span>
+                &raquo;
+                <a href="/posts/jquerycon2012/new-perspectives-on-performance.html">New Perspectives on Performance</a></li>
             
                 <li><span>Jun 29 2012</span>
                 &raquo;
