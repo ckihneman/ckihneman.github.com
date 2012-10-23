@@ -350,14 +350,26 @@
                                     return this.length < 2 ? this : this.height(
                                         Math.max.apply( this,
                                             $.map( this , function( e ) {
-                                                return $( e ).height();
-                                            })
-                                        )
+                                            return $( e ).height();
+                                            });
+                                        );
                                     );
                                 };
 
                             })( jQuery );
                     </section>
+                </section>
+
+                <section data-markdown>
+                    ## Know your plugins...
+
+                    ### do your research before using one or the other.
+
+                    * bValidator is our goto for form validation
+
+                    * AnythingSlider is our goto for sliding...anything!
+
+                    * Can't find a plugin? Time to make one!
                 </section>
 
                 <section data-markdown>
