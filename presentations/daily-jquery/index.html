@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>reveal.js - The HTML Presentation Framework</title>
+
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <style type="text/css">
+            .reveal .xl {
+                padding-top : 15%;
+                font-size : 1.4em;
+            }
+            .reveal .xl h3 {
+                line-height: 1;
+            }
+            body .reveal em,
+            body .reveal strong {
+                font-style : normal;
+                font-size : 1.2em;
+                color : #A6E22E;
+            }
+            body .reveal .xl em,
+            body .reveal .xl strong {
+                text-transform : uppercase;
+                font-weight : bold;
+            }
+            .reveal img {
+                max-width: 800px;
+            }
+            .l {
+                font-size: 1.2em;
+            }
+            .reveal .slides {
+                /*margin-top: -280px;*/
+            }
+        </style>
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-markdown class="l">
+                    # Daily jQuery
+
+                    <br>
+
+                    ## **With Chris Kihneman**
+                </section>
+
+                <section data-markdown>
+                    # I...
+
+                    <br>
+
+                    ...work at [Mindgruve](http://mindgruve.com) - a digital agency downtown.
+
+                    ...am a lead developer - "frontend focused"...
+
+                    ...code lots of JavaScript for...
+
+                    large CMS driven sites,
+
+                    apps, on PhoneGap for iOS, Pokki - Backbone.js, CoffeeScript, Underscore.js (among other things).
+
+                    Oh, and I use jQuery pretty much every day.
+                </section>
+
+                <section data-markdown class="xl">
+                    # jQuery...
+                </section>
+
+                <section data-markdown>
+                    ![jQuery Everywhere](images/meme-jquery-everywhere.jpg)
+                </section>
+
+                <section data-markdown class="xl">
+                    # jQuery is **$**
+                </section>
+
+                <section data-markdown>
+                    # It keeps us sane when...
+                </section>
+
+                <section data-markdown>
+                    ![Only ie7](images/meme-only-ie7.jpg)
+                </section>
+
+                <section data-markdown>
+                    # And gets us to more...
+                </section>
+
+                <section data-markdown>
+                    ![Success](images/meme-success.jpg)
+                </section>
+
+                <section data-markdown>
+                    # To the business...
+                </section>
+
+                <section data-markdown>
+                    # Know your JavaScript
+
+                    ### **jQuery is JavaScript afterall.**
+                </section>
+
+                <section data-markdown>
+                    # Know your debugger
+
+                    ### Chrome Dev Tools
+
+                    #### vs
+
+                    ### Firebug
+                </section>
+
+                <section>
+                    <section data-markdown class="xl">
+                        # Debugging 101
+                    </section>
+                    <section data-markdown>
+                        ## Don't hurt yourself with
+
+                            $( '.some-selector' ).on( 'click', function() {
+                                alert( 'the pain.' );
+                            });
+                    </section>
+                    <section data-markdown>
+                        ## Help yourself with
+
+                            $( 'div' ).on( 'click', function( e ) {
+                                console.log( 'something useful.' );
+                                console.log( 'two aruments or more', this, e,  e.type );
+
+                                // view the element as its html
+                                console.log( this );
+
+                                // inspect the element as an object, very useful
+                                // for digging into the internals of JavaScript
+                                console.dir( this );
+                            });
+                    </section>
+                    <section data-markdown>
+                        ## **`$0`** is your friend
+
+                        So awesome -
+
+                        1. Inspect an element
+
+                        2. Hit escape to activate your console as well
+
+                        3. Type **`$0`** into the console.
+
+                        To get a jQuery object, just do **`$($0)`**. Boom! Now you can test something on the fly if you please. If you are in `jQuery.noConflict()` (as some CMS's do by default, Wordpress), then **jQuery($0)**.
+                    </section>
+                    <section data-markdown>
+                        ## OMG Nothing is happening
+
+                        * Did you get your selector right?
+
+                            * Check `$('.some-selector').length` (maybe in a `console.log` call) to ensure you didnt either mess up your selector, or not put the element in your html.
+
+                        * Do you have other plugins on the page?
+
+                            * Sometimes plugins will prevent events from bubbling and could be blocking what you are trying to accomplish. Sometimes, you just have to read through a plugins code...
+                    </section>
+                    <section data-markdown>
+                        ## My event isn't firing!?
+
+                        * Have you AJAXed some content?
+
+                        * Have you appended elements to the dom?
+
+                        [fiddle!](http://jsfiddle.net/ckihneman/9E27T/)
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        # Event delegation
+
+                        Leverage event bubbling! Event bubbling? Yup!
+
+                        Allows us to catch events at a higher lever in the dom than where they occurred...
+
+                        [mmm fiddles...](http://jsfiddle.net/ckihneman/BJcHn/1/)
+                    </section>
+                    <section data-markdown>
+                        # Don't use `.live`...
+
+                        Just be more specific...
+
+                            $( document ).on( 'click', 'a', function( e ) {
+                                console.log( $(this).attr( 'href' ) );
+                            });
+
+                        But only do that if you really have to...it's going to always be better to delegate to the closest element possible.
+                    </section>
+                </section>
+
+                <section data-markdown class="xl">
+                    # Getting `this`
+
+                    What is `this`?
+
+                        $( '.box' ).on( 'click', function() {
+                            // `this` vs $( this )
+
+                            var $this = $( this );
+
+                            console.log( 'this', this );
+                            console.log( '$( this )', $this );
+
+                            console.dir( this );
+                            console.dir( $this );
+                        });
+
+                    In event callbacks, `this` is the native dom element being acted on. That's why if you want to do jQuery operations you have to do `$( this )`, then you can [have your way with the element](blank.html).
+                </section>
+
+                <section>
+                    <section data-markdown class="xl">
+                        # Common pitfalls
+                    </section>
+                    <section data-markdown>
+                        # Don't call jQuery unless you have to.
+
+                        Bad
+
+                            $( '.box' ).text( 'awesome box' );
+                            $( '.box' ).css( 'color', 'blue' );
+                            $( '.box' ).addClass( 'visible' );
+
+                        Good
+
+                            var $box = $( 'box' );
+                            $box.text( 'awesome box' );
+                            $box.css( 'color', 'blue' );
+                            $box.addClass( 'visible' );
+                    </section>
+                    <section data-markdown>
+                        # Even better...
+
+                            var $box = $( 'box' );
+                            $box
+                                .text( 'awesome box' )
+                                .css( 'color', 'blue' )
+                                .addClass( 'visible' );
+
+                        Remember, jQuery methods always (almost always) return themselves...chain it!
+                    </section>
+                    <section data-markdown>
+                        # Don't make sizzle work harder than it needs to!
+
+                        Sizzle is the dom query engine in jQuery, it's great and all, but dont overwork it if you don't have to.
+
+                        Instead of just `$( '.box' )` ...which searches your entire page...
+
+                        Be more specific...
+
+                            $( '#content' ).find( '.box' );
+                            // or
+                            $( '#content .box' );
+                            // or
+                            $( '.box', $('#content') );
+
+                        But just use `$( '#content' ).find( '.box' );`. Its readable, and a lot of the time you might need to cache `#content` anyways...
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        # Getting started...but where?
+
+                        I've started calling my main javascript page `index.js` ... or `app.js` if im working with the concept of "modules".
+
+                        Decide on something and go with it.
+                    </section>
+                    <section data-markdown>
+                        # The closure ... or IIFE
+
+                        IIFE? Yup, Immediately-Invoked Function Expression. What dat?
+
+                            ( function( $ ) {
+
+                                // setup functions to be used
+
+                                $( function() {
+
+                                    // execute ready code here
+                                });
+
+                            })( jQuery );
+                    </section>
+                    <section data-markdown>
+                        # The closure ... or IIFE
+
+                        IIFE? Yup, Immediately-Invoked Function Expression. What dat?
+
+                            ( function( $ ) {
+
+                                // setup functions to be used
+
+                                $( function() {
+
+                                    // execute ready code here
+                                });
+
+                            })( jQuery );
+                    </section>
+                    <section data-markdown>
+                        # Wrapping functionality in a "jQuery plugin"
+
+                            $.fn.pluginName = function() {
+                                // `this` is the jQuery object, not a native dom element
+                            };
+                    </section>
+                    <section data-markdown>
+                        # A real example
+
+                            ( function( $ ) {
+
+                                // Set all elements to the height of the tallest element.
+                                $.fn.setMaxHeight = function() {
+                                    return this.length < 2 ? this : this.height(
+                                        Math.max.apply( this,
+                                            $.map( this , function( e ) {
+                                                return $( e ).height();
+                                            })
+                                        )
+                                    );
+                                };
+
+                            })( jQuery );
+                    </section>
+                </section>
+
+                <section data-markdown>
+                    ## thanks!
+
+                    <br />
+
+                    # questions?
+
+                    <br />
+
+                    ### [feel free to drop me a line](mailto:ckihneman@mindgruve.com)
+                </section>
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+        </script>
+
+    </body>
+</html>
